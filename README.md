@@ -43,12 +43,32 @@ The Team Detail feature manages Team 13 member information inside UrbanEase. It 
 - Member database model: `server/models/Member.js`
 - Server static upload route: `server/server.js`
 
-## Image Path
 
-- Uploaded image storage folder: `server/uploads/`
-- Image metadata field in MongoDB: `document`
-- Public image URL format: `http://localhost:5000/uploads/<filename>`
-- Frontend image URL is created from the API server URL by removing `/api` and appending `/uploads/<filename>`.
+##  Project Screenshots
+
+###  Landing Page
+![Landing Page](./client/images/landingpage.png)
+
+---
+
+###  Team Detail Page
+![Team Detail Page](./client/images/teamdeatilpage.png)
+
+---
+
+###  Add Member Page
+![Add Member Page](./client/images/addmember.png)
+
+---
+
+###  View Detail Page
+![View Detail Page](./client/images/viewdetailpage.png)
+
+---
+
+###  Member Detail Page
+![Member Detail Page](./client/images/memberdetailpage.png)
+
 
 Example:
 
