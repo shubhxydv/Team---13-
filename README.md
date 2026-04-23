@@ -1,112 +1,65 @@
-# UrbanEase — Verified Home Services Platform
+# UrbanEase Team Detail Feature
 
-A full-stack MERN application combining a **Home Services Platform (UrbanEase)** with a **Team Members Management System (CT2 Implementation)**.
+## About
 
----
+The Team Detail feature manages Team 13 member information inside UrbanEase. It lets users add a team member, upload a member photo, view all members in a card layout, and open a single member profile with full details.
 
-## Project Overview
+## Tech Stack Used
 
-### UrbanEase (Main Project)
-Connects users with verified home service providers (electricians, plumbers, etc.)
+- Frontend: React, Vite, React Router DOM, Tailwind CSS, Lucide React
+- Backend: Node.js, Express.js
+- Database: MongoDB with Mongoose
+- File Upload: Multer
+- API Communication: Fetch API
+- Styling: Shared React page styles in `client/src/pages/teamPageStyles.js`
 
-- JWT Authentication with Role-Based Access (User / Provider / Admin)
-- Provider verification via Admin approval
-- Booking system with Reviews & Ratings
-- Admin Dashboard
+## Feature Description
 
-### Team Management System (CT2)
-A module to manage team members built with React + Node.js.
+- Team detail landing page shows Team 13 management options.
+- Add member page collects name, roll number, year, degree, project details, hobbies, certificate, internship, aim, and photo.
+- View members page shows all saved team members with their photo, bold name, roll number, and a view details button.
+- Member details page shows the selected member photo and complete profile information.
+- Uploaded photos are shown in full ratio using `object-fit: contain`, so the complete image is visible.
 
-- Add member with image upload
-- View all members / individual member details
-- Navbar navigation (Team 13 UI)
+## Functioning
 
----
+1. User opens `/team`.
+2. User clicks **Add Member** and fills the member form.
+3. The form sends a `POST` request to `POST /api/members` with `multipart/form-data`.
+4. Multer saves the uploaded image in the backend uploads folder.
+5. Member data and image metadata are saved in MongoDB.
+6. User opens `/team/members` to fetch all members from `GET /api/members`.
+7. User clicks **View Details** to open `/team/members/:id`, which fetches data from `GET /api/members/:id`.
 
-## Tech Stack
+## Important Paths
 
-| Layer      | Technology                        |
-|------------|-----------------------------------|
-| Frontend   | React.js, React Router, Axios     |
-| Backend    | Node.js, Express.js               |
-| Database   | MongoDB, Mongoose                 |
-| Other      | Multer (image upload), JWT        |
+- Team routes: `client/src/App.jsx`
+- Team landing page: `client/src/pages/TeamPage.jsx`
+- Add member page: `client/src/pages/AddMemberPage.jsx`
+- View members page: `client/src/pages/ViewMembersPage.jsx`
+- Single member details page: `client/src/pages/MemberDetailsPage.jsx`
+- Team shared styles: `client/src/pages/teamPageStyles.js`
+- Member API routes: `server/routes/members.js`
+- Member database model: `server/models/Member.js`
+- Server static upload route: `server/server.js`
 
----
+## Image Path
 
-## Project Structure
+- Uploaded image storage folder: `server/uploads/`
+- Image metadata field in MongoDB: `document`
+- Public image URL format: `http://localhost:5000/uploads/<filename>`
+- Frontend image URL is created from the API server URL by removing `/api` and appending `/uploads/<filename>`.
 
+Example:
+
+```txt
+server/uploads/1713700000000-member-photo.jpg
+http://localhost:5000/uploads/1713700000000-member-photo.jpg
 ```
-client/       → React Frontend
-server/       → Node + Express Backend
-uploads/      → Stored images
-.gitignore
-README.md
-```
-
----
-
-## Installation
-
-### 1. Clone the repository
-
-```bash
-git clone https://github.com/shubhxydv/Team---13-.git
-cd Team---13
-```
-
-### 2. Install dependencies
-
-```bash
-# Backend
-cd server
-npm install
-
-# Frontend
-cd ../client
-npm install
-```
-
-### 3. Setup environment variables
-
-Create a `.env` file inside `server/`:
-
-```
-PORT=5000
-MONGO_URI=your_mongodb_connection_string
-JWT_SECRET=your_jwt_secret
-```
-
----
-
-## Run the Application
-
-```bash
-# Start backend
-cd server
-npm start
-
-# Start frontend (new terminal)
-cd client
-npm run dev
-```
-
----
 
 ## API Endpoints
 
-### Team Members (CT2)
+- `POST /api/members` - Add a new member with optional image upload.
+- `GET /api/members` - Get all team members.
+- `GET /api/members/:id` - Get one member by ID.
 
-| Method | Endpoint            | Description              |
-|--------|---------------------|--------------------------|
-| POST   | `/api/members`      | Add new member (+ image) |
-| GET    | `/api/members`      | Fetch all members        |
-| GET    | `/api/members/:id`  | Fetch single member      |
-
----
-
-## Team 13
-
-- Harsh Kumar
-- Vansh Shah
-- Shubhankur
