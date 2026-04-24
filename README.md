@@ -62,7 +62,7 @@ The Team Detail feature manages Team 13 member information inside UrbanEase. It 
 ---
 
 ###  View Detail Page
-![View Detail Page](./client/images/viewdetailpage.png)
+![View Detail Page](./client/images/temdee.png)
 
 ---
 
