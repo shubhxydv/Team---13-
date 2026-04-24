@@ -52,12 +52,12 @@ The Team Detail feature manages Team 13 member information inside UrbanEase. It 
 ---
 
 ###  Team Detail Page
-![Team Detail Page](./client/images/teamdeatilpage.png)
+![Team Detail Page](./client/images/teamdee.png)
 
 ---
 
 ###  Add Member Page
-![Add Member Page](./client/images/addmember.png)
+![Add Member Page](./client/images/addm.png)
 
 ---
 
